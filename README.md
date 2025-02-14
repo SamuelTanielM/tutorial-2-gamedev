@@ -27,6 +27,9 @@
 }
 
 </style>
+<body style="font-family: 'MS Gothic', monospace;
+    background-color: rgb(75, 95, 137);">
+
 # Game Development Tutorial 2024/2025
 
 ## Table of Contents
@@ -46,16 +49,20 @@
 
 ---
 
-<h1 id="tutorial-2">✮ Tutorial 2 - Introduction to Game Engine</h1>
+<h1 id="tutorial-2" style="color:rgb(124, 222, 124);">✮ Tutorial 2 - Introduction to Game Engine</h1>
 
 **Nama**  : Samuel Taniel Mulyadi  
 **NPM**   : 2206081805  
 
 ---
 
-<span class="question" id="question-1">1. Apa saja pesan log yang dicetak pada panel Output?</span>
-<div class="answer">
-"<br><span class="highlight">
+<span id="question-1" style="font-weight: bold;">
+1. Apa saja pesan log yang dicetak pada panel Output?
+</span>  
+
+<div style="background-color: rgb(35, 64, 31); padding: 5px; display: inline-block; padding-left: 25px; border-left: 5px solid rgb(122, 183, 122); color: white;">
+"<br>
+<span style="background-color: rgb(151, 99, 124); color: white; padding: 2px 5px; border-radius: 4px;">
 Platform initialized<br>
 Reached objective!<br>
 </span>"<br>
@@ -159,3 +166,6 @@ Pada latihan mandiri, terdapat beberapa hal yang saya tambahkan, seperti berikut
 ---
 
 <h1 id="tutorial-3">✮ Tutorial 3 - Coming Soon</h1>
+
+
+</body>
