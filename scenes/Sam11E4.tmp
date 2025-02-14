@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://cafw61yg70ofb"]
+
+[ext_resource type="PackedScene" uid="uid://thdbpyodaa5d" path="res://scenes/MoonPlatform.tscn" id="1_vov20"]
+[ext_resource type="PackedScene" uid="uid://e3jkpfsdmp5o" path="res://scenes/Ufo.tscn" id="3_wy368"]
+[ext_resource type="Script" path="res://scenes/ObjectiveArea.gd" id="4_8st7x"]
+[ext_resource type="Texture2D" uid="uid://cpe6ni4rdf6i8" path="res://assets/UntitledArtwork1.png" id="4_w1jjt"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(138.75, 79)
+
+[node name="MainLevel" type="Node"]
+
+[node name="PlatformBlue" type="Node2D" parent="."]
+z_index = 100
+position = Vector2(35, 565)
+
+[node name="MoonPlatform2" parent="PlatformBlue" instance=ExtResource("1_vov20")]
+position = Vector2(70, 0)
+
+[node name="MoonPlatform" parent="PlatformBlue" instance=ExtResource("1_vov20")]
+
+[node name="Ufo" parent="." instance=ExtResource("3_wy368")]
+z_index = 100
+position = Vector2(70, 450)
+mass = 1.0
+
+[node name="ObjectiveArea" type="Area2D" parent="."]
+z_index = 100
+position = Vector2(1012, 0)
+script = ExtResource("4_8st7x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectiveArea"]
+position = Vector2(70.625, 40)
+shape = SubResource("1")
+
+[node name="UntitledArtwork1" type="Sprite2D" parent="."]
+position = Vector2(577, 325)
+scale = Vector2(0.419628, 0.419628)
+texture = ExtResource("4_w1jjt")
+
+[node name="FallArea" type="Area2D" parent="."]
+z_index = 100
+position = Vector2(1, 647)
+scale = Vector2(8.24, 1)
+script = ExtResource("4_8st7x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallArea"]
+position = Vector2(70.625, 40)
+shape = SubResource("1")
+
+[connection signal="body_entered" from="ObjectiveArea" to="ObjectiveArea" method="_on_ObjectiveArea_body_entered"]
+[connection signal="body_entered" from="FallArea" to="FallArea" method="_on_ObjectiveArea_body_entered"]

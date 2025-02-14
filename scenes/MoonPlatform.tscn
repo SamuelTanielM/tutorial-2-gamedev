@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://thdbpyodaa5d"]
+
+[ext_resource type="Texture2D" uid="uid://bn248l442qvff" path="res://assets/RisingStone3_RFLB.png" id="1_ftyrx"]
+
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(70.8416, 88)
+
+[node name="MoonPlatform" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(0, 36)
+shape = SubResource("2")
+
+[node name="RisingStone3Rflb" type="Sprite2D" parent="."]
+position = Vector2(0, 21)
+scale = Vector2(0.360909, 0.360909)
+texture = ExtResource("1_ftyrx")
+region_enabled = true
+region_rect = Rect2(0, 0, 200, 339)

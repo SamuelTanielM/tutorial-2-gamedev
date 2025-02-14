@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://e3jkpfsdmp5o"]
+
+[ext_resource type="Script" path="res://scenes/ufo.gd" id="1_6os7p"]
+[ext_resource type="Texture2D" uid="uid://doaamedqjfmja" path="res://assets/Ufo.png" id="1_hc08f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y3q3f"]
+radius = 55.4619
+
+[sub_resource type="Curve" id="Curve_rcdi2"]
+max_value = 256.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 222.242), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_631n1"]
+curve = SubResource("Curve_rcdi2")
+
+[sub_resource type="Curve" id="Curve_qm70p"]
+min_value = -670.02
+max_value = 1024.0
+_data = [Vector2(0, 0.307692), 0.0, 0.0, 0, 0, Vector2(0.426667, 0.923077), 0.0, 0.0, 0, 0, Vector2(0.98, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_c1rv3"]
+curve = SubResource("Curve_qm70p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yrqwd"]
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 3.88
+spread = 67.247
+angular_velocity_min = 363.87
+angular_velocity_max = 720.0
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 172.04
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 40.03
+linear_accel_max = 100.0
+radial_accel_min = 56.81
+radial_accel_max = 100.0
+damping_max = 3.762
+scale_min = 3.0
+scale_max = 5.0
+color = Color(1, 1, 1, 0.768627)
+alpha_curve = SubResource("CurveTexture_631n1")
+emission_curve = SubResource("CurveTexture_c1rv3")
+
+[node name="Ufo" type="RigidBody2D"]
+mass = 0.01
+script = ExtResource("1_6os7p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(0, 9)
+scale = Vector2(0.201657, 0.187521)
+texture = ExtResource("1_hc08f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 2
+position = Vector2(-1, -3)
+scale = Vector2(1, 0.439999)
+shape = SubResource("CircleShape2D_y3q3f")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, -1)
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_yrqwd")
+explosiveness = 0.08
+randomness = 0.11

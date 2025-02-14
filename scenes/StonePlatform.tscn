@@ -6,6 +6,7 @@
 size = Vector2(70.8416, 70.5898)
 
 [node name="StonePlatform" type="StaticBody2D"]
+collision_priority = 50.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3p1dt")
