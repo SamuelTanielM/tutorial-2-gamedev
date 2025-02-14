@@ -4,15 +4,16 @@
 - [🚀 Game Development Tutorial 2024/2025](#-game-development-tutorial-20242025)
   - [📌 Table of Contents](#-table-of-contents)
   - [✨ Tutorial 2 - Introduction to Game Engine ](#-tutorial-2---introduction-to-game-engine-)
-    - [1. Apa saja pesan log yang dicetak pada panel Output?](#question-1)
-    - [2. Gerakkan landasan ke batas area bawah dan kembali ke atas.](#question-2)
-    - [3. Buka scene MainLevel dengan tampilan workspace 2D.](#question-3)
-    - [4. Scene BlueShip dan StonePlatform memiliki child node bertipe Sprite.](#question-4)
-    - [5. Perbedaan RigidBody2D dan StaticBody2D.](#question-5)
-    - [6. Ubah nilai atribut Mass pada RigidBody2D di BlueShip.](#question-6)
-    - [7. Ubah nilai atribut Disabled pada CollisionShape2D di StonePlatform.](#question-7)
-    - [8. Manipulasi Position, Rotation, dan Scale BlueShip.](#question-8)
-    - [9. Mengapa nilai Position node tidak sesuai di Inspector?](#question-9)
+    - [**1. Apa saja pesan log yang dicetak pada panel Output?** ](#1-apa-saja-pesan-log-yang-dicetak-pada-panel-output-)
+    - [**2. Gerakkan landasan ke batas area bawah dan kembali ke atas.** ](#2-gerakkan-landasan-ke-batas-area-bawah-dan-kembali-ke-atas-)
+    - [**3. Buka scene `MainLevel` dengan tampilan workspace 2D.** ](#3-buka-scene-mainlevel-dengan-tampilan-workspace-2d-)
+    - [**4. Scene BlueShip dan StonePlatform memiliki child node bertipe Sprite.** ](#4-scene-blueship-dan-stoneplatform-memiliki-child-node-bertipe-sprite-)
+    - [**5. Perbedaan `RigidBody2D` dan `StaticBody2D`.** ](#5-perbedaan-rigidbody2d-dan-staticbody2d-)
+    - [**6. Ubah nilai atribut `Mass` pada `RigidBody2D` di BlueShip.** ](#6-ubah-nilai-atribut-mass-pada-rigidbody2d-di-blueship-)
+    - [**7. Ubah nilai atribut `Disabled` pada `CollisionShape2D` di StonePlatform.** ](#7-ubah-nilai-atribut-disabled-pada-collisionshape2d-di-stoneplatform-)
+    - [**8. Manipulasi `Position`, `Rotation`, dan `Scale` BlueShip.** ](#8-manipulasi-position-rotation-dan-scale-blueship-)
+    - [**9. Mengapa nilai `Position` node tidak sesuai di Inspector?** ](#9-mengapa-nilai-position-node-tidak-sesuai-di-inspector-)
+    - [**10. Latihan Mandiri: Membuat Level Baru** ](#10-latihan-mandiri-membuat-level-baru-)
   - [✨ Tutorial 3 - Coming Soon ](#-tutorial-3---coming-soon-)
 
 ---
@@ -24,12 +25,12 @@
 
 ---
 
-### **1️. Apa saja pesan log yang dicetak pada panel Output?** <a id="question-1"></a>
+### **1. Apa saja pesan log yang dicetak pada panel Output?** <a id="question-1"></a>
 `Platform initialized`
-<br>`Reached objective!`
+<br>`Reached objective!`<br> 
 Pesan log akan muncul saat menyentuh batas atas area permainan. Jika dilakukan berkali-kali, output `"Reached objective!"` akan terus bertambah.
 
-### **2️. Gerakkan landasan ke batas area bawah dan kembali ke atas.** <a id="question-2"></a>
+### **2. Gerakkan landasan ke batas area bawah dan kembali ke atas.** <a id="question-2"></a>
 
 `Platform initialized`
 <br>`Reached objective!`
@@ -38,35 +39,35 @@ Pesan log akan muncul saat menyentuh batas atas area permainan. Jika dilakukan b
 Jika menyentuh batas atas setelah bergerak dari batas bawah, `"Reached objective!"` akan muncul setiap kali menyentuhnya.
 </details>
 
-### **3️. Buka scene `MainLevel` dengan tampilan workspace 2D.** <a id="question-3"></a>
+### **3. Buka scene `MainLevel` dengan tampilan workspace 2D.** <a id="question-3"></a>
 
 Ya, scene `ObjectiveArea` berada di batas atas area. Oleh karena itu, saat kita menyentuhnya, pesan log yang muncul adalah:
 <br>`Reached objective!`
 
-### **4️. Scene BlueShip dan StonePlatform memiliki child node bertipe Sprite.** <a id="question-4"></a>
+### **4. Scene BlueShip dan StonePlatform memiliki child node bertipe Sprite.** <a id="question-4"></a>
 
 `Sprite` digunakan untuk menampilkan gambar (texture) dalam game. Sprite sendiri tidak memiliki properti fisika, tetapi dapat berinteraksi dengan dunia game jika dikombinasikan dengan `CollisionShape2D`.
 
 
-### **5️. Perbedaan `RigidBody2D` dan `StaticBody2D`.** <a id="question-5"></a>
+### **5. Perbedaan `RigidBody2D` dan `StaticBody2D`.** <a id="question-5"></a>
 
 - **`RigidBody2D`**: Memiliki simulasi fisika aktif (dipengaruhi gravitasi, gaya, dan tabrakan).  
 - **`StaticBody2D`**: Tidak bergerak, tetapi bisa berinteraksi dengan objek lain. Biasanya digunakan untuk lantai dan dinding.
 
 
-### **6️. Ubah nilai atribut `Mass` pada `RigidBody2D` di BlueShip.** <a id="question-6"></a>
+### **6. Ubah nilai atribut `Mass` pada `RigidBody2D` di BlueShip.** <a id="question-6"></a>
 
 - **Jika `mass` meningkat** → BlueShip lebih sulit dipercepat dan lebih lambat bergerak.  
 - **Jika `mass` berkurang** → BlueShip lebih mudah terdorong oleh gaya atau tabrakan.
 
 Efeknya tidak selalu terlihat jelas dan perlu diamati dengan teliti.
 
-### **7️. Ubah nilai atribut `Disabled` pada `CollisionShape2D` di StonePlatform.** <a id="question-7"></a>
+### **7. Ubah nilai atribut `Disabled` pada `CollisionShape2D` di StonePlatform.** <a id="question-7"></a>
 
 Jika atribut `Disabled = true`, maka **StonePlatform tidak akan memiliki bentuk tabrakan**, sehingga BlueShip bisa menembusnya seperti tidak ada objek di sana.
 
 
-### **8️. Manipulasi `Position`, `Rotation`, dan `Scale` BlueShip.** <a id="question-8"></a>
+### **8. Manipulasi `Position`, `Rotation`, dan `Scale` BlueShip.** <a id="question-8"></a>
 - **`Position`** → Mengubah koordinat BlueShip dalam dunia game.  
 - **`Rotation`** → Memutar BlueShip.  
 - **`Scale`** → Tidak dapat diubah langsung di `RigidBody2D`, harus melalui `Sprite` dalam scene `BlueShip`.
@@ -74,7 +75,7 @@ Jika atribut `Disabled = true`, maka **StonePlatform tidak akan memiliki bentuk 
 📌 Jika mencoba mengubah ukuran `RigidBody2D`, akan muncul error:
 <br>`Size changes to RigidBody2D will be overridden by the physics engine when running. Change the size in children collision shapes.`
 
-### **9️. Mengapa nilai `Position` node tidak sesuai di Inspector?** <a id="question-9"></a>
+### **9. Mengapa nilai `Position` node tidak sesuai di Inspector?** <a id="question-9"></a>
 
 Karena **StonePlatform** dan **StonePlatform2** berada dalam **Node Parent `PlatformBlue`**, maka transformasi (Position, Rotation, Scale) yang terlihat di Inspector **berdasarkan parent**.
 
